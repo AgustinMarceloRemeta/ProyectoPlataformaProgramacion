@@ -53,12 +53,12 @@
     <UnityVersion>2020.3.34f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\PlayerYellow.cs" />
     <Compile Include="Assets\Player.cs" />
-    <Compile Include="Assets\PlayerGrey.cs" />
+    <Compile Include="Assets\PlayerBlue.cs" />
     <Compile Include="Assets\PlayerGreen.cs" />
     <Compile Include="Assets\PlayerRed.cs" />
-    <Compile Include="Assets\PlayerYellow.cs" />
-    <Compile Include="Assets\PlayerBlue.cs" />
+    <Compile Include="Assets\PlayerGrey.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
