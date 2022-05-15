@@ -56,12 +56,13 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PlayerYellow.cs" />
-    <Compile Include="Assets\Player.cs" />
-    <Compile Include="Assets\PlayerBlue.cs" />
-    <Compile Include="Assets\PlayerGreen.cs" />
-    <Compile Include="Assets\PlayerRed.cs" />
-    <Compile Include="Assets\PlayerGrey.cs" />
+    <Compile Include="Assets\Scrips\PlayerYellow.cs" />
+    <Compile Include="Assets\Scrips\Player.cs" />
+    <Compile Include="Assets\Scrips\PlayerBlue.cs" />
+    <Compile Include="Assets\Scrips\PlayerGreen.cs" />
+    <Compile Include="Assets\Scrips\PlayerRed.cs" />
+    <Compile Include="Assets\Scrips\PlayerGrey.cs" />
+    <Compile Include="Assets\Scrips\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -694,8 +695,8 @@
     <Reference Include="Unity.2D.IK.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Animation.Triangle.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Editor.dll</HintPath>
+    <Reference Include="Unity.2D.Animation.Triangle.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>

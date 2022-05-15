@@ -6,10 +6,13 @@ public abstract class Player : MonoBehaviour
 {
     public float Speed, SpeedUp;
     bool Grounded= true;
-    [SerializeField] Rigidbody2D rb;
+    protected Rigidbody2D rb;
     float Speed2;
 
-
+    public virtual void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     void mov()
     {
         float InputX = Input.GetAxis("Horizontal");

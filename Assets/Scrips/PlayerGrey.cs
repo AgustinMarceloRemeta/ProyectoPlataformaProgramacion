@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerYellow : Player
+public class PlayerGrey : Player
 {
-   
-    void Start()
+
+    public override void Start()
     {
+        base.Start();
     }
 
- 
     void Update()
     {
         Basic();
     }
+   
 }
