@@ -99,6 +99,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 3
   SpeedUp: 7
+  Layer:
+    serializedVersion: 2
+    m_Bits: 8
+  Tag1: Blue
+  Tag2: Red
 --- !u!61 &740689732889078754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -145,4 +150,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

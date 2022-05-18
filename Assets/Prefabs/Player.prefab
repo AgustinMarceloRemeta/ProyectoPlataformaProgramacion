@@ -99,7 +99,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 3
   SpeedUp: 7
-  rb: {fileID: 4199760682010168782}
+  Layer:
+    serializedVersion: 2
+    m_Bits: 8
+  Tag1: Inmortal
+  Tag2: Inmortal
 --- !u!50 &4199760682010168782
 Rigidbody2D:
   serializedVersion: 4
@@ -120,7 +124,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &4199760682010168783
 BoxCollider2D:
   m_ObjectHideFlags: 0

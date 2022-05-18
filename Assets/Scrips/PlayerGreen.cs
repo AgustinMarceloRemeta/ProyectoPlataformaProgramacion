@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class PlayerGreen : Player
 {
-    // Start is called before the first frame update
+
     public override void Start()
     {
         base.Start();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public override void Update()
     {
-        Basic();
+        base.Update();
+        Climb();
+    }
+    
+    void Climb()
+    {
+        if (Physics2D.OverlapCircle(transform.position, 1).CompareTag("Green")) Grounded = true; ;
     }
 }

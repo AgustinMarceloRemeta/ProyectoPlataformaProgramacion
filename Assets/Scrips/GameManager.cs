@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
      public GameObject PlayerActive;
     void Start()
     {
-
+     
     }
 
     void Update()

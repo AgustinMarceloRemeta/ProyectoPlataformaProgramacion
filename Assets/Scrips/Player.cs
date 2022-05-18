@@ -5,13 +5,22 @@ using UnityEngine.SceneManagement;
 public abstract class Player : MonoBehaviour
 {
     public float Speed, SpeedUp;
-    bool Grounded= true;
+    protected bool Grounded= true;
     protected Rigidbody2D rb;
     float Speed2;
+    [SerializeField] LayerMask Layer;
+    [SerializeField] string Tag1, Tag2;
+
+
 
     public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+    public virtual void Update()
+    {
+        mov();
+        isGrounded();
     }
     void mov()
     {
@@ -19,7 +28,7 @@ public abstract class Player : MonoBehaviour
        
         Vector3 Movement = new Vector3(InputX, 0 , 0);
         transform.Translate(Movement * Speed2 * Time.deltaTime);
-        if ((Input.GetKey("space")|| Input.GetKeyDown("w")) && Grounded)
+        if ((Input.GetKey("space") || Input.GetKeyDown("w")) && Grounded)
         {
             rb.AddRelativeForce(new Vector2(0, SpeedUp), ForceMode2D.Impulse);
             Grounded = false;
@@ -33,18 +42,20 @@ public abstract class Player : MonoBehaviour
             Speed2 = Speed;
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    void isGrounded()
     {
-        if (collision.gameObject.CompareTag("Ground")) Grounded = true ;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, Layer.value);
+        if (hit) Grounded = true;
+        else Grounded = false;
     }
     void Dead()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    public virtual void Basic()
+
+    public virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        mov();
-        if (Input.GetKeyDown("r")) Dead();
+        if (collision.collider.CompareTag(Tag1)) Dead();
+        if (collision.collider.CompareTag(Tag2)) Dead();
     }
 }

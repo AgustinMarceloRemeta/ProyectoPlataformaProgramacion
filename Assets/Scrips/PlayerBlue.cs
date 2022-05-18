@@ -11,8 +11,8 @@ public class PlayerBlue : Player
     }
 
 
-    void Update()
+    public override void Update()
     {
-        Basic();
+        base.Update();
     }
 }

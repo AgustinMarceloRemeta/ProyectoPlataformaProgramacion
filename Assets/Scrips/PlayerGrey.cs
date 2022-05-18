@@ -10,9 +10,9 @@ public class PlayerGrey : Player
         base.Start();
     }
 
-    void Update()
+    public override void Update()
     {
-        Basic();
+        base.Update();
     }
-   
+
 }
