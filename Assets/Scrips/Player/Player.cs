@@ -49,14 +49,11 @@ public abstract class Player : MonoBehaviour
         if (hit) Grounded = true;
         else Grounded = false;
     }
-    void Dead()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+  
 
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag(Tag1)) Dead();
-        if (collision.collider.CompareTag(Tag2)) Dead();
+        if (collision.collider.CompareTag(Tag1)) ;
+        if (collision.collider.CompareTag(Tag2)) ;
     }
 }
