@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scrips\Player\PlayerGrey.cs" />
     <Compile Include="Assets\Scrips\Enemy\EnemyGround.cs" />
     <Compile Include="Assets\Scrips\GameManager.cs" />
+    <Compile Include="Assets\Scrips\Player\Harts.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

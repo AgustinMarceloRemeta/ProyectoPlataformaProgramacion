@@ -13,6 +13,7 @@ public abstract class Player : MonoBehaviour
 
 
 
+
     public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();

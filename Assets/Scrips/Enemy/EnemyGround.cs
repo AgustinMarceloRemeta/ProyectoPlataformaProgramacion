@@ -29,4 +29,12 @@ public class EnemyGround: Enemy
         if (right) transform.rotation = Quaternion.Euler(0, 0, 0);
         if (!right) transform.rotation = Quaternion.Euler(0, 180, 0);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            if (true) ;
+        }
+    }
 }
