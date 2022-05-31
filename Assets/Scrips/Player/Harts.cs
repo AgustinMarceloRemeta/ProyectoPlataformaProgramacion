@@ -7,7 +7,7 @@ public class Harts : MonoBehaviour
     [SerializeField] Sprite Sp1, Sp2;
      public int life = 2;
 
-    private void ChangeSp()
+    private void Update()
     {
         if (life == 2) GetComponent<SpriteRenderer>().sprite = Sp1;
         if (life == 1) GetComponent<SpriteRenderer>().sprite = Sp2;

@@ -12,9 +12,9 @@ public abstract class Enemy : MonoBehaviour
     }
 
 
-    void Update()
+    public virtual void Update()
     {
-        
+        if (TouchForDead == 0) Destroy(gameObject);    
     }
 
     public abstract void Mov();

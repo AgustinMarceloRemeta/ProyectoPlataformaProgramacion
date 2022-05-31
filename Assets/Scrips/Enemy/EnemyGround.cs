@@ -9,6 +9,7 @@ public class EnemyGround: Enemy
     [SerializeField] private bool right;
     [SerializeField] private float velocity;
     private float negative, positive;
+    public bool ToDie;
     public override void Start()
     {
         base.Start();
@@ -17,8 +18,9 @@ public class EnemyGround: Enemy
     }
 
 
-    void Update()
+    public override void Update()
     {
+        base.Update();
         Mov();
     }
     public override void Mov() 
@@ -30,11 +32,14 @@ public class EnemyGround: Enemy
         if (!right) transform.rotation = Quaternion.Euler(0, 180, 0);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)    
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            if (true) ;
+            if (ToDie) Destroy(gameObject);
+            else FindObjectOfType<GameManager>().RestLife();
         }
     }
+    
+
 }

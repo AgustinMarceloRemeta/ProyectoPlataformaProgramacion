@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Colors();
-       
     }
   
     void Change(GameObject PlayerNew)
@@ -36,6 +35,7 @@ public class GameManager : MonoBehaviour
         else if (Input.GetKeyDown("4")) Change(Blue);
         //else if (Input.GetKeyDown("5")) Change(Yellow);
     }
+    #region life
     void LifeVisual()
     {
         foreach (var item in harts)
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (var item in harts) item.GetComponent<Harts>().life = 2;
     }
-    void RestLife()
+    public void RestLife()
     {
         Life--;
         LifeVisual();
@@ -62,4 +62,5 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    #endregion
 }

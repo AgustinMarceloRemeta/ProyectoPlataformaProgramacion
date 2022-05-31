@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{901A3A5D-984C-D128-1379-CEAC458480AF}</ProjectGuid>
+    <ProjectGuid>{91D70EC1-859E-AE94-0A63-52D62292D3AB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -64,7 +64,9 @@
     <Compile Include="Assets\Scrips\Player\PlayerGrey.cs" />
     <Compile Include="Assets\Scrips\Enemy\EnemyGround.cs" />
     <Compile Include="Assets\Scrips\GameManager.cs" />
+    <Compile Include="Assets\Scrips\Player\PlayerGreen.cs" />
     <Compile Include="Assets\Scrips\Player\Harts.cs" />
+    <Compile Include="Assets\Feet.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

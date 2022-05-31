@@ -22,6 +22,7 @@ public abstract class Player : MonoBehaviour
     {
         mov();
         isGrounded();
+        
     }
     void mov()
     {
@@ -29,7 +30,7 @@ public abstract class Player : MonoBehaviour
        
         Vector3 Movement = new Vector3(InputX, 0 , 0);
         transform.Translate(Movement * Speed2 * Time.deltaTime);
-        if ((Input.GetKey("space") || Input.GetKeyDown("w")) && Grounded)
+        if ((Input.GetKeyDown("space") || Input.GetKeyDown("w")) && Grounded)
         {
             rb.AddRelativeForce(new Vector2(0, SpeedUp), ForceMode2D.Impulse);
             Grounded = false;
@@ -56,4 +57,5 @@ public abstract class Player : MonoBehaviour
         if (collision.collider.CompareTag(Tag1)) ;
         if (collision.collider.CompareTag(Tag2)) ;
     }
+   
 }
