@@ -11,6 +11,8 @@ TagManager:
   - Feet
   - MovCam
   - NoMovCam
+  - ChangeZone
+  - Money
   layers:
   - Default
   - TransparentFX

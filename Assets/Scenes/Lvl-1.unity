@@ -308,11 +308,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135575678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0030002594, y: 1.2477874, z: 0}
+  m_LocalPosition: {x: 0.0030002594, y: 1.2477874, z: 0.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1668541925}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &212125291
 PrefabInstance:
@@ -368,6 +368,10 @@ PrefabInstance:
     - target: {fileID: 4199760682010168784, guid: b8e92c41aac542b43b69279cfb0eef61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199760682010168786, guid: b8e92c41aac542b43b69279cfb0eef61, type: 3}
+      propertyPath: SpeedUp
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4199760682010168787, guid: b8e92c41aac542b43b69279cfb0eef61, type: 3}
       propertyPath: m_Name
@@ -2957,11 +2961,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787533223}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1668541925}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &925171537
 GameObject:
@@ -3130,6 +3134,8 @@ GameObject:
   m_Component:
   - component: {fileID: 978826761}
   - component: {fileID: 978826760}
+  - component: {fileID: 978826762}
+  - component: {fileID: 978826763}
   m_Layer: 0
   m_Name: keyGrey
   m_TagString: Untagged
@@ -3202,6 +3208,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &978826762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978826759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4365ecf1418af84e93368c02ba4d29e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 1668541926}
+--- !u!61 &978826763
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978826759}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.28, y: 1.28}
+  m_EdgeRadius: 0
 --- !u!1 &1013453548
 GameObject:
   m_ObjectHideFlags: 0
@@ -3476,6 +3521,8 @@ MonoBehaviour:
   MainCamera: {fileID: 477383823}
   HeightCamera: 2
   FollowCam: 0
+  MoneyText: {fileID: 1463160998}
+  CantMoney: 0
 --- !u!4 &1131074616
 Transform:
   m_ObjectHideFlags: 0
@@ -4083,6 +4130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1668541925}
   - component: {fileID: 1668541926}
+  - component: {fileID: 1668541927}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -4101,8 +4149,8 @@ Transform:
   m_LocalPosition: {x: 28.5, y: -2.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 787533225}
   - {fileID: 135575680}
+  - {fileID: 787533225}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4118,6 +4166,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0656368fa72bc4db128a4cb8146288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SrUp: {fileID: 135575679}
+  SrDown: {fileID: 787533224}
+  SpUp: {fileID: -4689445804998014852, guid: 0db78ab3676d3604191ca878b1a88c5a, type: 3}
+  SpDown: {fileID: 6120437822995767798, guid: 0db78ab3676d3604191ca878b1a88c5a, type: 3}
+--- !u!61 &1668541927
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668541924}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.011069298, y: 0.22138864}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8893032, y: 1.7969991}
+  m_EdgeRadius: 0
 --- !u!1 &1726322672 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1787015462336789354, guid: 5e4cccdca58a56045b36bc86b8706c88, type: 3}
@@ -4450,6 +4528,10 @@ PrefabInstance:
     - target: {fileID: 4251704448275920468, guid: 1dc82705275656847b6aa37cc8abbe9f, type: 3}
       propertyPath: m_Name
       value: Moneda
+      objectReference: {fileID: 0}
+    - target: {fileID: 4251704448275920468, guid: 1dc82705275656847b6aa37cc8abbe9f, type: 3}
+      propertyPath: m_TagString
+      value: Money
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dc82705275656847b6aa37cc8abbe9f, type: 3}
