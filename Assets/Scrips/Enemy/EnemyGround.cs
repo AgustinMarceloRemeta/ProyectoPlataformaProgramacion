@@ -25,11 +25,11 @@ public class EnemyGround: Enemy
     }
     public override void Mov() 
     {
-        transform.Translate(velocity* Time.deltaTime , 0, 0);
+        transform.Translate(-velocity * Time.deltaTime, 0, 0);
         if (transform.position.x > positive) right = false;
         if (transform.position.x < negative) right = true;
-        if (right) transform.rotation = Quaternion.Euler(0, 0, 0);
-        if (!right) transform.rotation = Quaternion.Euler(0, 180, 0);
+        if (right) transform.rotation = Quaternion.Euler(0, 180, 0);
+        if (!right) transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)    

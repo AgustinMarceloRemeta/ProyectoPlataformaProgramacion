@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6807442941584615677}
   - component: {fileID: 5142823630674339058}
+  - component: {fileID: 3918471125972077978}
   m_Layer: 0
   m_Name: Hart
   m_TagString: Untagged
@@ -82,3 +83,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3918471125972077978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787015462336789354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c929d05eda0d96b449f43f009b204e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sp1: {fileID: 2687838248061087522, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
+  Sp2: {fileID: -8045893399972588014, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
+  Sp3: {fileID: -5402533863154111428, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
+  life: 2

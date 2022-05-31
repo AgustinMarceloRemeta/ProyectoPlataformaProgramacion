@@ -2,14 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject Grey, Green, Red, Blue, Yellow;
+    [Header("ChangePlayer")]
     [SerializeField] Transform Appearance;
+    [SerializeField] GameObject Grey, Green, Red, Blue, Yellow;
     public GameObject PlayerActive;
+
+    [Header("Life")]
     public int Life;
     [SerializeField] GameObject[] harts;
+
+    [Header("Camera")]
+    [SerializeField] GameObject MainCamera;
+    [SerializeField] int HeightCamera;   
+    public bool FollowCam;
+
+    [Header("Money")]
+    [SerializeField] Text MoneyText;
+    public int CantMoney;
     void Start()
     {
         
@@ -17,12 +30,14 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        MoneyText.text = CantMoney.ToString();
+        PlayerActive = GameObject.FindGameObjectWithTag("Player");
         Colors();
+        FollowPlayer();
     }
-  
+    #region ChangePlayer
     void Change(GameObject PlayerNew)
     {
-        PlayerActive = GameObject.FindGameObjectWithTag("Player");
         Appearance.position = PlayerActive.transform.position;
         Destroy(PlayerActive);
         Instantiate(PlayerNew, Appearance.position,Quaternion.identity);       
@@ -35,12 +50,13 @@ public class GameManager : MonoBehaviour
         else if (Input.GetKeyDown("4")) Change(Blue);
         //else if (Input.GetKeyDown("5")) Change(Yellow);
     }
+    #endregion
     #region life
     void LifeVisual()
     {
         foreach (var item in harts)
         {
-            if(item.activeInHierarchy == true)
+            if (!(item.GetComponent<Harts>().life == 0))
             {
                 item.GetComponent<Harts>().life--;
                 break;
@@ -61,6 +77,17 @@ public class GameManager : MonoBehaviour
     void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
+    #endregion
+    #region Camera
+    void FollowPlayer()
+    {
+        if(FollowCam)
+        MainCamera.transform.position = new Vector3(PlayerActive.transform.position.x, PlayerActive.transform.position.y + HeightCamera, MainCamera.transform.position.z);
+        else
+        MainCamera.transform.position = new Vector3(MainCamera.transform.position.x, PlayerActive.transform.position.y + HeightCamera, MainCamera.transform.position.z);
     }
     #endregion
 }

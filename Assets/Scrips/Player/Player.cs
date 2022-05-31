@@ -10,6 +10,7 @@ public abstract class Player : MonoBehaviour
     float Speed2;
     [SerializeField] LayerMask Layer;
     [SerializeField] string Tag1, Tag2;
+    GameManager Manager;
 
 
 
@@ -17,6 +18,7 @@ public abstract class Player : MonoBehaviour
     public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Manager = FindObjectOfType<GameManager>();
     }
     public virtual void Update()
     {
@@ -54,8 +56,20 @@ public abstract class Player : MonoBehaviour
 
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag(Tag1)) ;
-        if (collision.collider.CompareTag(Tag2)) ;
+        if (collision.collider.CompareTag(Tag1)) Manager.RestLife();
+        if (collision.collider.CompareTag(Tag2)) Manager.RestLife();
+        
     }
-   
+    public virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("MovCam")) Manager.FollowCam = true;
+        if (collision.gameObject.CompareTag("NoMovCam")) Manager.FollowCam = false;
+        if (collision.gameObject.CompareTag("ChangeZone")) print("ChangeZone");
+        if (collision.gameObject.CompareTag("Money"))
+        {
+            Manager.CantMoney++;
+            Destroy(collision.gameObject);
+        }
+    }
+
 }

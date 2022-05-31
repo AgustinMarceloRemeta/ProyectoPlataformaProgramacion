@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Harts : MonoBehaviour
 {
-    [SerializeField] Sprite Sp1, Sp2;
+    [SerializeField] Sprite Sp1, Sp2, Sp3;
      public int life = 2;
 
     private void Update()
     {
         if (life == 2) GetComponent<SpriteRenderer>().sprite = Sp1;
         if (life == 1) GetComponent<SpriteRenderer>().sprite = Sp2;
-        if (life == 0) gameObject.SetActive(false);
+        if (life == 0) GetComponent<SpriteRenderer>().sprite = Sp3;
     }
 }

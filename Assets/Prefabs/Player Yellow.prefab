@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 202138251619823221}
   - component: {fileID: 7065966727929068297}
   - component: {fileID: 4598274480790481166}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Feet (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 8858016657302507179}
   - component: {fileID: 8553401418236341137}
   - component: {fileID: 3913043722093829116}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 7493997039267941533}
   - component: {fileID: 5669141470280824940}
   - component: {fileID: 7252540218757479804}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player Yellow
   m_TagString: Player
   m_Icon: {fileID: 0}
