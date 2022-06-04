@@ -296,6 +296,7 @@ MonoBehaviour:
     m_Bits: 8
   Tag1: Inmortal
   Tag2: Inmortal
+  CantJumps: 2
 --- !u!50 &5669141470280824940
 Rigidbody2D:
   serializedVersion: 4

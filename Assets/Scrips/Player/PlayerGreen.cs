@@ -19,6 +19,6 @@ public class PlayerGreen : Player
     
     void Climb()
     {
-        if (Physics2D.OverlapCircle(transform.position, 1).CompareTag("Green")) Grounded = true; ;
+        if (Physics2D.OverlapCircle(transform.position, 1).CompareTag("Green")) Jumps = CantJumps;
     }
 }

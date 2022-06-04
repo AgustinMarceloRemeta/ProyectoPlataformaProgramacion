@@ -15,14 +15,11 @@ public class GameManager : MonoBehaviour
     public int Life;
     [SerializeField] GameObject[] harts;
 
-    [Header("Camera")]
-    [SerializeField] GameObject MainCamera;
-    [SerializeField] int HeightCamera;   
-    public bool FollowCam;
 
     [Header("Money")]
     [SerializeField] Text MoneyText;
     public int CantMoney;
+
     void Start()
     {
         
@@ -33,7 +30,6 @@ public class GameManager : MonoBehaviour
         MoneyText.text = CantMoney.ToString();
         PlayerActive = GameObject.FindGameObjectWithTag("Player");
         Colors();
-        FollowPlayer();
     }
     #region ChangePlayer
     void Change(GameObject PlayerNew)
@@ -81,13 +77,5 @@ public class GameManager : MonoBehaviour
 
 
     #endregion
-    #region Camera
-    void FollowPlayer()
-    {
-        if(FollowCam)
-        MainCamera.transform.position = new Vector3(PlayerActive.transform.position.x, PlayerActive.transform.position.y + HeightCamera, MainCamera.transform.position.z);
-        else
-        MainCamera.transform.position = new Vector3(MainCamera.transform.position.x, PlayerActive.transform.position.y + HeightCamera, MainCamera.transform.position.z);
-    }
-    #endregion
+
 }
