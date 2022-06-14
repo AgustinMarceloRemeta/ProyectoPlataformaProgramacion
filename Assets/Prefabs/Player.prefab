@@ -194,14 +194,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4450576302b976f4c8a6f31ea25bfd82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 3
-  SpeedUp: 7
+  CantJumps: 2
   Layer:
     serializedVersion: 2
     m_Bits: 8
+  Speed: 3
+  SpeedUp: 7
   Tag1: Inmortal
   Tag2: Inmortal
-  CantJumps: 2
 --- !u!50 &4199760682010168782
 Rigidbody2D:
   serializedVersion: 4

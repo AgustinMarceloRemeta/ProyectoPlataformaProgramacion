@@ -17,15 +17,21 @@ public abstract class Player : MonoBehaviour
     GameManager Manager;
     [SerializeField] string Tag1, Tag2;
 
+    //animation
+    [Header("Animacion")]
+
+    private Animator animator;
+
     public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Manager = FindObjectOfType<GameManager>();
+        animator = GetComponent<Animator>();
     }
     public virtual void Update()
     {
         mov();
-         if(VerifGround)isGrounded();
+        if (VerifGround) isGrounded();
         
     }
     #region Movement
