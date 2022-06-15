@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 4199760682010168786}
   - component: {fileID: 4199760682010168782}
   - component: {fileID: 4199760682010168783}
+  - component: {fileID: 1871940087176262739}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -200,8 +201,7 @@ MonoBehaviour:
     m_Bits: 8
   Speed: 3
   SpeedUp: 7
-  Tag1: Inmortal
-  Tag2: Inmortal
+  Color: {fileID: 11400000, guid: 67c6e597fdb72cc4d871c855aeae4ed9, type: 2}
 --- !u!50 &4199760682010168782
 Rigidbody2D:
   serializedVersion: 4
@@ -249,6 +249,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.9470779}
   m_EdgeRadius: 0
+--- !u!95 &1871940087176262739
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4199760682010168787}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 73672773d8293c64a905032bf1a9c320, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7529609268241486658
 GameObject:
   m_ObjectHideFlags: 0

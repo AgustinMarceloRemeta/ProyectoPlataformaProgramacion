@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7080463247617836345}
   - component: {fileID: 6742613412391185479}
   - component: {fileID: 2675053800271293872}
+  - component: {fileID: -3903702182005699021}
   m_Layer: 7
   m_Name: Player Blue
   m_TagString: Player
@@ -97,14 +98,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3401f4cfce6947440bc337312ede6d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 3
-  SpeedUp: 7
+  CantJumps: 2
   Layer:
     serializedVersion: 2
     m_Bits: 8
-  Tag1: Red
-  Tag2: Green
-  CantJumps: 2
+  Speed: 3
+  SpeedUp: 7
+  Color: {fileID: 11400000, guid: a539565b72c334d44a083b3ab3cd5606, type: 2}
 --- !u!61 &6742613412391185479
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -152,3 +152,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &-3903702182005699021
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9205251021523967246}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 73672773d8293c64a905032bf1a9c320, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

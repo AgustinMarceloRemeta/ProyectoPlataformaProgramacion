@@ -30,11 +30,11 @@ public class GameManager : MonoBehaviour
         MoneyText.text = CantMoney.ToString();
         PlayerActive = GameObject.FindGameObjectWithTag("Player");
         Colors();
+        Appearance.position = PlayerActive.transform.position;
     }
     #region ChangePlayer
     void Change(GameObject PlayerNew)
     {
-        Appearance.position = PlayerActive.transform.position;
         Destroy(PlayerActive);
         Instantiate(PlayerNew, Appearance.position,Quaternion.identity);       
     }

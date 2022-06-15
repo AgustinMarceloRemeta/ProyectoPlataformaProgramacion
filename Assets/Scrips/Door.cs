@@ -14,11 +14,10 @@ public class Door : MonoBehaviour
     {
         SrUp.sprite = SpUp;
         SrDown.sprite = SpDown;
-        gameObject.tag = "ChangeZone";
+        EndLevel = true;
     }
-    public void ChangeZone(Transform Pl)
+    public void ChangeZone()
     {
-        if (!EndLevel) Pl.position = NewDoor.position;
-        else if (EndLevel) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+      if (EndLevel) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1); 
     }
 }
