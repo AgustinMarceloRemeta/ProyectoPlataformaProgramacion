@@ -3586,6 +3586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1131074616}
   - component: {fileID: 1131074615}
+  - component: {fileID: 1131074617}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3617,8 +3618,6 @@ MonoBehaviour:
   - {fileID: 1269862105}
   - {fileID: 616327731}
   - {fileID: 1726322672}
-  MoneyText: {fileID: 1463160998}
-  CantMoney: 0
 --- !u!4 &1131074616
 Transform:
   m_ObjectHideFlags: 0
@@ -3633,6 +3632,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1131074617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131074614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b707bc78b1bb8904f9749a077353d522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoneyText: {fileID: 1463160998}
+  CantMoney: 0
 --- !u!1 &1142474609 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7529609268241486658, guid: b8e92c41aac542b43b69279cfb0eef61, type: 3}

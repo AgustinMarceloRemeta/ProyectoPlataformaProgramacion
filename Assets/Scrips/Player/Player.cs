@@ -14,7 +14,6 @@ public abstract class Player : MonoBehaviour, IColor
     float Speed2;
 
     //rest
-    GameManager Manager;
     [SerializeField] Colors Color;
 
     //animation
@@ -25,7 +24,6 @@ public abstract class Player : MonoBehaviour, IColor
     public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Manager = FindObjectOfType<GameManager>();
         animator = GetComponent<Animator>();
     }
     public virtual void Update()
@@ -91,7 +89,6 @@ public abstract class Player : MonoBehaviour, IColor
         {
            door.ChangeZone();
         }
-
     }
 
     public string GetColor()
