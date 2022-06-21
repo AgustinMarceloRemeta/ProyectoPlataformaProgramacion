@@ -91,11 +91,7 @@ public abstract class Player : MonoBehaviour, IColor
         {
            door.ChangeZone();
         }
-        if (collision.gameObject.CompareTag("Money"))
-        {
-            Manager.CantMoney++;
-            Destroy(collision.gameObject);
-        }
+
     }
 
     public string GetColor()

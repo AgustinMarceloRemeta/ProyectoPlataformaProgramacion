@@ -16,9 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] harts;
 
 
-    [Header("Money")]
-    [SerializeField] Text MoneyText;
-    public int CantMoney;
+ 
 
     void Start()
     {
@@ -27,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        MoneyText.text = CantMoney.ToString();
+
         PlayerActive = GameObject.FindGameObjectWithTag("Player");
         Colors();
         Appearance.position = PlayerActive.transform.position;
