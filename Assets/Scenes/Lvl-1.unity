@@ -383,6 +383,10 @@ PrefabInstance:
       propertyPath: CantJumps
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4199760682010168786, guid: b8e92c41aac542b43b69279cfb0eef61, type: 3}
+      propertyPath: SpeedDown
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 4199760682010168787, guid: b8e92c41aac542b43b69279cfb0eef61, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3804,6 +3808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TouchForDead: 1
+  DeadSprite: {fileID: 21300000, guid: b6288a5a57755f341899ea88df61eb14, type: 3}
   Limit: 2
   right: 0
   velocity: 2

@@ -9,7 +9,7 @@ public class EnemyGround: Enemy
     [SerializeField] private bool right;
     [SerializeField] private float velocity;
     private float negative, positive;
-    public bool ToDie;
+   
     public override void Start()
     {
         base.Start();
@@ -32,14 +32,7 @@ public class EnemyGround: Enemy
         if (!right) transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)    
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            if (ToDie) Destroy(gameObject);
-            else FindObjectOfType<GameManager>().RestLife();
-        }
-    }
+  
     
 
 }

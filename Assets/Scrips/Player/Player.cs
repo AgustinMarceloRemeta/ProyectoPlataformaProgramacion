@@ -10,7 +10,7 @@ public abstract class Player : MonoBehaviour, IColor
     protected int Jumps;
     protected Rigidbody2D rb;
     [SerializeField] LayerMask Layer;
-    public float Speed, SpeedUp;
+    public float Speed, SpeedUp, SpeedDown;
     float Speed2;
 
     //rest
@@ -39,6 +39,10 @@ public abstract class Player : MonoBehaviour, IColor
     #region Movement
     void mov()
     {
+        if (Input.GetKey("s"))
+        {
+            rb.AddRelativeForce(new Vector2(0, -SpeedDown), ForceMode2D.Impulse);
+        }
         float InputX = Input.GetAxis("Horizontal");
 
         if (InputX != 0 && VerifGround)
@@ -53,6 +57,8 @@ public abstract class Player : MonoBehaviour, IColor
 
         if ((Input.GetKeyDown("space") || Input.GetKeyDown("w")) && Jumps<CantJumps)
         {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = 0;
             animator.SetBool("Run", false);
             animator.SetBool("Jump", true);
             rb.AddRelativeForce(new Vector2(0, SpeedUp), ForceMode2D.Impulse);
@@ -67,6 +73,7 @@ public abstract class Player : MonoBehaviour, IColor
         { transform.rotation = Quaternion.Euler(0, 0, 0);
             Speed2 = Speed;
         }
+       
     }
     void isGrounded()
     {
@@ -80,20 +87,9 @@ public abstract class Player : MonoBehaviour, IColor
         VerifGround = true;
     }
     #endregion
-    #region Collisions
-
-    public virtual void OnTriggerEnter2D(Collider2D collision)
-    {
-        Door door = collision.gameObject.GetComponent<Door>();
-        if (door != null) 
-        {
-           door.ChangeZone();
-        }
-    }
 
     public string GetColor()
     {
         return Color.color;
     }
-    #endregion
 }

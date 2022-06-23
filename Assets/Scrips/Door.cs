@@ -20,4 +20,8 @@ public class Door : MonoBehaviour
     {
       if (EndLevel) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1); 
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<Player>() != null) ChangeZone();
+    }
 }
