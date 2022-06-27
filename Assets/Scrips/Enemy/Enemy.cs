@@ -16,7 +16,8 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void Update()
     {
-        if (TouchForDead == 0) Dead();    
+        if (TouchForDead == 0) Dead();
+        Mov();
     }
 
     public abstract void Mov();

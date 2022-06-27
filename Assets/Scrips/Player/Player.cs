@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public abstract class Player : MonoBehaviour, IColor
 {
     //movement
-    bool VerifGround = true;
+    protected bool VerifGround = true, Downded = true, Jumped = true;
     public int CantJumps;
     protected int Jumps;
     protected Rigidbody2D rb;
@@ -25,6 +25,7 @@ public abstract class Player : MonoBehaviour, IColor
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        Jumps = 3;
     }
     public virtual void Update()
     {
@@ -39,7 +40,7 @@ public abstract class Player : MonoBehaviour, IColor
     #region Movement
     void mov()
     {
-        if (Input.GetKey("s"))
+        if (Input.GetKey("s") && Downded)
         {
             rb.AddRelativeForce(new Vector2(0, -SpeedDown), ForceMode2D.Impulse);
         }
@@ -55,7 +56,7 @@ public abstract class Player : MonoBehaviour, IColor
         Vector3 Movement = new Vector3(InputX, 0 , 0);
         transform.Translate(Movement * Speed2 * Time.deltaTime);
 
-        if ((Input.GetKeyDown("space") || Input.GetKeyDown("w")) && Jumps<CantJumps)
+        if ((Input.GetKeyDown("space") || Input.GetKeyDown("w")) && Jumps<CantJumps && Jumped)
         {
             rb.velocity = Vector3.zero;
             rb.angularVelocity = 0;

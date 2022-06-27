@@ -21,7 +21,6 @@ public class EnemyGround: Enemy
     public override void Update()
     {
         base.Update();
-        Mov();
     }
     public override void Mov() 
     {

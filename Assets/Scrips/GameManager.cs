@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
     [Header("ChangePlayer")]
-    [SerializeField] Transform Appearance;
+   
     [SerializeField] GameObject Grey, Green, Red, Blue, Yellow;
     public GameObject PlayerActive;
 
     [Header("Life")]
     public int Life;
-    [SerializeField] GameObject[] harts;
+    [SerializeField] Harts[] harts;
 
 
- 
+
 
     void Start()
     {
@@ -28,13 +30,13 @@ public class GameManager : MonoBehaviour
 
         PlayerActive = GameObject.FindGameObjectWithTag("Player");
         Colors();
-        Appearance.position = PlayerActive.transform.position;
+        this.transform.position = PlayerActive.transform.position;
     }
     #region ChangePlayer
     void Change(GameObject PlayerNew)
     {
         Destroy(PlayerActive);
-        Instantiate(PlayerNew, Appearance.position,Quaternion.identity);       
+        Instantiate(PlayerNew, this.transform.position,Quaternion.identity);       
     }
     void Colors()
     {
@@ -50,16 +52,16 @@ public class GameManager : MonoBehaviour
     {
         foreach (var item in harts)
         {
-            if (!(item.GetComponent<Harts>().life == 0))
+            if (!(item.life == 0))
             {
-                item.GetComponent<Harts>().life--;
+                item.life--;
                 break;
             }
         }
     }
     public void ResetLife()
     {
-        foreach (var item in harts) item.GetComponent<Harts>().life = 2;
+        foreach (var item in harts) item.life = 2;
     }
     public void RestLife()
     {
