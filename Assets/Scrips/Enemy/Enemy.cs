@@ -4,12 +4,23 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
+    [Header("Dead")] 
     public int TouchForDead;
     protected Rigidbody Rb;
     public Sprite DeadSprite;
     public bool ToDie;
+
+    [Header("Mov Horizontal")]
+    [Range(0, 10)]
+    public float Limit;
+    [SerializeField] private bool right;
+    [SerializeField] private float velocity;
+    protected float negative, positive;
+
     public virtual void Start()
     {
+        negative = transform.position.x - Limit;
+        positive = transform.position.x + Limit;
         Rb = GetComponent<Rigidbody>();
     }
 
@@ -26,7 +37,7 @@ public abstract class Enemy : MonoBehaviour
     {
         this.gameObject.GetComponent<Collider2D>().isTrigger = true;
         this.gameObject.GetComponent<SpriteRenderer>().sprite = DeadSprite;
-        Destroy(this.gameObject,5f);
+        Destroy(this.gameObject,0.2f);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -35,6 +46,14 @@ public abstract class Enemy : MonoBehaviour
             if (ToDie) TouchForDead--;
             else FindObjectOfType<GameManager>().RestLife();
         }
+    }
+    public virtual void MovHorizontal()
+    {
+        transform.Translate(-velocity * Time.deltaTime, 0, 0);
+        if (transform.position.x > positive) right = false;
+        if (transform.position.x < negative) right = true;
+        if (right) transform.rotation = Quaternion.Euler(0, 180, 0);
+        if (!right) transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
 

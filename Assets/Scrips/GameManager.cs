@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
-using System.Linq;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -12,13 +12,12 @@ public class GameManager : MonoBehaviour
    
     [SerializeField] GameObject Grey, Green, Red, Blue, Yellow;
     public GameObject PlayerActive;
+    [SerializeField] Image SpPlayer;
 
     [Header("Life")]
     public int Life;
     [SerializeField] Harts[] harts;
-
-
-
+     
 
     void Start()
     {
@@ -27,8 +26,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
+       
         PlayerActive = GameObject.FindGameObjectWithTag("Player");
+        SpPlayer.sprite = PlayerActive.GetComponent<Player>().ColorSp;
         Colors();
         this.transform.position = PlayerActive.transform.position;
     }

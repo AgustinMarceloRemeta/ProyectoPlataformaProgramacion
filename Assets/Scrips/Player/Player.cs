@@ -15,6 +15,7 @@ public abstract class Player : MonoBehaviour, IColor
 
     //rest
     [SerializeField] Colors Color;
+    public Sprite ColorSp;
 
     //animation
     [Header("Animacion")]
