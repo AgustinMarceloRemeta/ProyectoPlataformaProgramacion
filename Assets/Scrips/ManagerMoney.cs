@@ -12,13 +12,18 @@ public class ManagerMoney : MonoBehaviour
     public int CantMoney;
     void Start()
     {
-
+    CantMoney = PlayerPrefs.GetInt("Money", 0);
+    MoneyText.text = CantMoney.ToString();
     }
 
 
     void Update()
     {
 
+    }
+    void SaveMoney()
+    {
+        PlayerPrefs.SetInt("Money", CantMoney);
     }
     void MoneyMas()
     {
@@ -28,10 +33,12 @@ public class ManagerMoney : MonoBehaviour
     void OnEnable()
     {
         Money.MoneyEvent += MoneyMas;
+        Door.SaveMoney += SaveMoney;
     }
     void OnDisable()
     {
         Money.MoneyEvent -= MoneyMas;
+        Door.SaveMoney -= SaveMoney;
     }
 }
 

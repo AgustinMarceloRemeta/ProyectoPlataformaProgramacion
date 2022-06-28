@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Door : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Door : MonoBehaviour
     [SerializeField] Sprite SpUp, SpDown;
     [SerializeField] Transform NewDoor;
     [SerializeField] bool EndLevel;
+    public static Action SaveMoney;
 
     public void OpenDoor()
     {
@@ -18,7 +20,11 @@ public class Door : MonoBehaviour
     }
     public void ChangeZone()
     {
-      if (EndLevel) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1); 
+        if (EndLevel)
+        {
+            SaveMoney?.Invoke();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
