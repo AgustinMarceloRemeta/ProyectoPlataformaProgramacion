@@ -104,8 +104,10 @@ MonoBehaviour:
     m_Bits: 8
   Speed: 3
   SpeedUp: 7
-  Tag1: 
-  Tag2: 
+  SpeedDown: 0.05
+  Color: {fileID: 11400000, guid: bba1364383bf4d241889526bd1a27dfb, type: 2}
+  ColorSp: {fileID: 1039819007915699783, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
+  Climbing: 2
 --- !u!61 &740689732889078754
 BoxCollider2D:
   m_ObjectHideFlags: 0
