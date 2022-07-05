@@ -20,7 +20,7 @@ public abstract class Player : MonoBehaviour, IColor
     //animation
     [Header("Animacion")]
 
-    private Animator animator;
+    protected Animator animator;
 
     public virtual void Start()
     {
@@ -36,7 +36,9 @@ public abstract class Player : MonoBehaviour, IColor
             isGrounded();
             animator.SetBool("Jump", false);
         }
-        
+        AnimJump();
+
+
     }
     #region Movement
     void mov()
@@ -47,10 +49,10 @@ public abstract class Player : MonoBehaviour, IColor
         }
         float InputX = Input.GetAxis("Horizontal");
 
-        if (InputX != 0 && VerifGround)
+        if (InputX != 0 && VerifGround && rb.velocity.y == 0)
         {
             animator.SetBool("Run", true);
-            animator.SetBool("Jump", false);
+            animator.SetBool("Fall", false);
         }
         else animator.SetBool("Run", false);
 
@@ -62,7 +64,6 @@ public abstract class Player : MonoBehaviour, IColor
             rb.velocity = Vector3.zero;
             rb.angularVelocity = 0;
             animator.SetBool("Run", false);
-            animator.SetBool("Jump", true);
             rb.AddRelativeForce(new Vector2(0, SpeedUp), ForceMode2D.Impulse);
            Jumps++;
             StartCoroutine("VerifGrounded");
@@ -82,7 +83,7 @@ public abstract class Player : MonoBehaviour, IColor
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, Layer.value);
         if (hit) Jumps = 0;  
     }
-    IEnumerator VerifGrounded()
+    public IEnumerator VerifGrounded()
     {
         VerifGround = false;
         yield return new WaitForSeconds(1);
@@ -93,5 +94,23 @@ public abstract class Player : MonoBehaviour, IColor
     public string GetColor()
     {
         return Color.color;
+    }
+    void AnimJump()
+    {
+     if(rb.velocity.y> 0)
+        {
+            animator.SetBool("Jump", true);
+            animator.SetBool("Fall", false);
+        }
+        if (rb.velocity.y < 0)
+        {
+            animator.SetBool("Jump", false);
+            animator.SetBool("Fall", true);
+        }
+        if(rb.velocity.y == 0)
+        {
+            animator.SetBool("Jump", false);
+            animator.SetBool("Fall", false);
+        }
     }
 }

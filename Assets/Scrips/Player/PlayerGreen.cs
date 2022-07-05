@@ -22,14 +22,17 @@ public class PlayerGreen : Player
     {
         if (Input.GetKey("w"))
         {
+            animator.SetBool("Climb", true);
             this.transform.Translate(new Vector3(0, Climbing * Time.deltaTime, 0));
           //  rb.AddRelativeForce(new Vector2(0, Climbing*Time.deltaTime), ForceMode2D.Impulse);
         }
         else if(Input.GetKey("s"))
         {
+            animator.SetBool("Climb", true);
             this.transform.Translate(new Vector3(0, -Climbing * Time.deltaTime, 0));
             // rb.AddRelativeForce(new Vector2(0, -Climbing * Time.deltaTime), ForceMode2D.Impulse);
         }
+        else animator.SetBool("Climb", false);
 
 
 
@@ -38,6 +41,10 @@ public class PlayerGreen : Player
     {
         if (collision.gameObject.CompareTag("Green"))
         {
+            animator.SetBool("Climb-Idle", true);
+            StartCoroutine("VerifGrounded");
+            animator.SetBool("Run", false);
+            animator.SetBool("Jump", false);
             rb.gravityScale = 0;
             rb.velocity = Vector3.zero;
             rb.angularVelocity = 0;
@@ -50,6 +57,8 @@ public class PlayerGreen : Player
     {
         if (collision.gameObject.CompareTag("Green"))
         {
+            animator.SetBool("Climb-Idle", false);
+            animator.SetBool("Climb", false);
             rb.gravityScale = 1;
             IsClimb = false;
             Jumped = true;
