@@ -104,9 +104,8 @@ MonoBehaviour:
     m_Bits: 8
   Speed: 3
   SpeedUp: 7
-  SpeedDown: 0.05
-  Color: {fileID: 11400000, guid: bee5cd9be7a4eeb4e83eedc270b692e4, type: 2}
-  ColorSp: {fileID: 5293216509577878019, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
+  Tag1: 
+  Tag2: 
 --- !u!61 &3605757522435316880
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -164,7 +163,7 @@ Animator:
   m_GameObject: {fileID: 4396823326993703944}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 73672773d8293c64a905032bf1a9c320, type: 2}
+  m_Controller: {fileID: 9100000, guid: d02e8f7e37cf96a418ef1f2a244e17b2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

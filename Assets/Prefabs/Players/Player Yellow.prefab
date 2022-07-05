@@ -296,9 +296,8 @@ MonoBehaviour:
     m_Bits: 8
   Speed: 3
   SpeedUp: 7
-  SpeedDown: 0.05
-  Color: {fileID: 11400000, guid: 327281b75af99b44995b0f4c7a00e6de, type: 2}
-  ColorSp: {fileID: 5307865648494276994, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
+  Tag1: 
+  Tag2: 
 --- !u!50 &5669141470280824940
 Rigidbody2D:
   serializedVersion: 4
@@ -356,7 +355,7 @@ Animator:
   m_GameObject: {fileID: 6299281810084173165}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 73672773d8293c64a905032bf1a9c320, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4d131a3f80d29f549a0b17b621f3d65b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
