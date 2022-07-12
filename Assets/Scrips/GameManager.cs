@@ -8,6 +8,7 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+    public static Action DieEvent;
     [Header("ChangePlayer")]
    
     [SerializeField] GameObject Grey, Green, Red, Blue, Yellow;
@@ -67,14 +68,21 @@ public class GameManager : MonoBehaviour
     {
         Life--;
         LifeVisual();
-        if (Life == 0) Die();
-        
+        if (Life == 0) DieEvent?.Invoke();        
     }
     void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    private void OnEnable()
+    {
+        DieEvent += Die;
+    }
+    private void OnDisable()
+    {
+        DieEvent -= Die;
+    }
 
     #endregion
 

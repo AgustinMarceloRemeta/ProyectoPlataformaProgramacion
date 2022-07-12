@@ -19,7 +19,7 @@ public class Saw : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player>() != null)
         {
-            print("Muere");
+            GameManager.DieEvent?.Invoke();
         }
     }
 }

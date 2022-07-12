@@ -202,6 +202,8 @@ MonoBehaviour:
   Speed: 3
   SpeedUp: 7
   SpeedDown: 0.05
+  DamageImpulse: 17000
+  TimeDamage: 1
   Color: {fileID: 11400000, guid: 67c6e597fdb72cc4d871c855aeae4ed9, type: 2}
   ColorSp: {fileID: -6763785539414910572, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
 --- !u!50 &4199760682010168782

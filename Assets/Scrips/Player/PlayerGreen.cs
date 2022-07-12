@@ -20,22 +20,17 @@ public class PlayerGreen : Player
     
     void Climb()
     {
-        if (Input.GetKey("w"))
+        if (InputY > 0)
         {
             animator.SetBool("Climb", true);
             this.transform.Translate(new Vector3(0, Climbing * Time.deltaTime, 0));
-          //  rb.AddRelativeForce(new Vector2(0, Climbing*Time.deltaTime), ForceMode2D.Impulse);
         }
-        else if(Input.GetKey("s"))
+        else if(InputY < 0)
         {
             animator.SetBool("Climb", true);
             this.transform.Translate(new Vector3(0, -Climbing * Time.deltaTime, 0));
-            // rb.AddRelativeForce(new Vector2(0, -Climbing * Time.deltaTime), ForceMode2D.Impulse);
         }
         else animator.SetBool("Climb", false);
-
-
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

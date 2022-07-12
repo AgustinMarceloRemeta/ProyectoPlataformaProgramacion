@@ -7,15 +7,25 @@ public abstract class Player : MonoBehaviour, IColor
     //movement
     protected bool VerifGround = true, Downded = true, Jumped = true;
     public int CantJumps;
-    protected int Jumps;
+    protected int Jumps= 3;
     protected Rigidbody2D rb;
     [SerializeField] LayerMask Layer;
     public float Speed, SpeedUp, SpeedDown;
     float Speed2;
+    protected float InputX, InputY;
+
+    [Header("Damage")]
+    [SerializeField] float DamageImpulse;
+    [SerializeField] float TimeDamage;
+    bool IsDamage= false;
+
+
 
     //rest
+    [Header("Color")]
     [SerializeField] Colors Color;
     public Sprite ColorSp;
+    SpriteRenderer Render;
 
     //animation
     [Header("Animacion")]
@@ -26,23 +36,26 @@ public abstract class Player : MonoBehaviour, IColor
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        Jumps = 3;
+        Render = GetComponent<SpriteRenderer>();
     }
     public virtual void Update()
     {
+        if (IsDamage)
+        {
+            Render.enabled = !Render.enabled;
+        }
         mov();
         if (VerifGround)
         {
             isGrounded();
             animator.SetBool("Jump", false);
         }
+        InputX = Input.GetAxis("Horizontal");
+        InputY = Input.GetAxis("Vertical");
     }
     #region Movement
     void mov()
     {
-        float InputX = Input.GetAxis("Horizontal");
-        float InputY = Input.GetAxis("Vertical");
-
         //Animations
         if (InputX != 0 && VerifGround && rb.velocity.y > -1) animator.SetBool("Run", true);
         else animator.SetBool("Run", false);
@@ -96,16 +109,37 @@ public abstract class Player : MonoBehaviour, IColor
             animator.SetBool("Jump", true);
             animator.SetBool("Fall", false);
         }
-        if (rb.velocity.y < 0 && VerifGround == false)
+        if (rb.velocity.y < 0)
         {
-            animator.SetBool("Jump", false);
-            animator.SetBool("Fall", true);
+            if (rb.velocity.y > -1) animator.SetBool("Fall", false);
+            else
+            {
+                animator.SetBool("Jump", false);
+                animator.SetBool("Fall", true);
+            }
         }
         if(rb.velocity.y == 0)
         {
             animator.SetBool("Jump", false);
             animator.SetBool("Fall", false);
         }
-        if (VerifGround && rb.velocity.y > -1) animator.SetBool("Fall", false);
+    }
+    public void Damage()
+    {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = 0;
+        if (this.transform.rotation.eulerAngles.y == 0)
+        rb.AddRelativeForce(new Vector2(-DamageImpulse*Time.deltaTime, DamageImpulse * Time.deltaTime),ForceMode2D.Force);
+        else
+        rb.AddRelativeForce(new Vector2(DamageImpulse*Time.deltaTime, DamageImpulse * Time.deltaTime),ForceMode2D.Force);
+        StartCoroutine("DamageAnim");
+        
+    }
+    IEnumerator DamageAnim()
+    {
+        IsDamage = true;
+        yield return new WaitForSeconds(TimeDamage);
+        IsDamage = false;
+        Render.enabled = true;
     }
 }

@@ -44,7 +44,11 @@ public abstract class Enemy : MonoBehaviour
         if (collision.gameObject.GetComponent<Player>() != null)
         {
             if (ToDie) TouchForDead--;
-            else FindObjectOfType<GameManager>().RestLife();
+            else
+            {
+                FindObjectOfType<GameManager>().RestLife();
+                collision.gameObject.GetComponent<Player>().Damage();
+            }
         }
     }
     public virtual void MovHorizontal()
@@ -55,6 +59,4 @@ public abstract class Enemy : MonoBehaviour
         if (right) transform.rotation = Quaternion.Euler(0, 180, 0);
         if (!right) transform.rotation = Quaternion.Euler(0, 0, 0);
     }
-
-
 }
