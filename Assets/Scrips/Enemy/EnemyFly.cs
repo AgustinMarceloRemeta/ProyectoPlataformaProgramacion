@@ -16,7 +16,7 @@ public class EnemyFly : Enemy
     public override void Start()
     {
         base.Start();
-        sinCenterY = transform.position.y;
+        sinCenterY = this.transform.position.y;
     }
 
     public override void Update()
@@ -25,10 +25,10 @@ public class EnemyFly : Enemy
     }
     public override void Mov()
     {
-        Vector2 pos = transform.position;
+        Vector2 pos = this.transform.position;
         float sin = Mathf.Sin(pos.x * frecuency) * amplitude;
         pos.y = sinCenterY + sin;
-        transform.position = pos;
+        this.transform.position = pos;
         MovHorizontal();
         
     }

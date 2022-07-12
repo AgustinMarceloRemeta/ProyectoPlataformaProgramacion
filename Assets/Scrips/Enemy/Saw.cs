@@ -13,7 +13,7 @@ public class Saw : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(0, 0, VelRotation);
+        this.transform.Rotate(0, 0, VelRotation);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -38,21 +38,14 @@ public abstract class Player : MonoBehaviour, IColor
         animator = GetComponent<Animator>();
         Render = GetComponent<SpriteRenderer>();
     }
+
     public virtual void Update()
     {
-        if (IsDamage)
-        {
-            Render.enabled = !Render.enabled;
-        }
+        AnimDamage();
         mov();
-        if (VerifGround)
-        {
-            isGrounded();
-            animator.SetBool("Jump", false);
-        }
-        InputX = Input.GetAxis("Horizontal");
-        InputY = Input.GetAxis("Vertical");
+        Inputs();
     }
+
     #region Movement
     void mov()
     {
@@ -71,6 +64,11 @@ public abstract class Player : MonoBehaviour, IColor
            Jumps++;
             StartCoroutine("VerifGrounded");
         }
+        if (VerifGround)
+        {
+            isGrounded();
+            animator.SetBool("Jump", false);
+        }
 
         //DownMove
         if (InputY < 0 && Downded)
@@ -80,14 +78,14 @@ public abstract class Player : MonoBehaviour, IColor
 
         //Horizontal Move
         Speed2 = InputX * Speed;
-        if (Speed2<0)   transform.rotation =  Quaternion.Euler(0,180f, 0);
-        if (Speed2> 0)  transform.rotation = Quaternion.Euler(0, 0, 0);
+        if (Speed2<0)   this.transform.rotation =  Quaternion.Euler(0,180f, 0);
+        if (Speed2> 0)  this.transform.rotation = Quaternion.Euler(0, 0, 0);
         Vector3 Movement = new Vector3(Speed2, 0, 0);
         this.transform.Translate(Movement* Time.deltaTime,Space.World);
     }
     void isGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, Layer.value);
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector2.down, 1f, Layer.value);
         if (hit) Jumps = 0;  
     }
     public IEnumerator VerifGrounded()
@@ -96,15 +94,9 @@ public abstract class Player : MonoBehaviour, IColor
         yield return new WaitForSeconds(1);
         VerifGround = true;
     }
-    #endregion
-
-    public string GetColor()
-    {
-        return Color.color;
-    }
     void AnimJump()
     {
-     if(rb.velocity.y> 0)
+        if (rb.velocity.y > 0)
         {
             animator.SetBool("Jump", true);
             animator.SetBool("Fall", false);
@@ -118,12 +110,20 @@ public abstract class Player : MonoBehaviour, IColor
                 animator.SetBool("Fall", true);
             }
         }
-        if(rb.velocity.y == 0)
+        if (rb.velocity.y == 0)
         {
             animator.SetBool("Jump", false);
             animator.SetBool("Fall", false);
         }
     }
+    private void Inputs()
+    {
+        InputX = Input.GetAxis("Horizontal");
+        InputY = Input.GetAxis("Vertical");
+    }
+    #endregion
+
+    #region Damage
     public void Damage()
     {
         rb.velocity = Vector3.zero;
@@ -135,11 +135,24 @@ public abstract class Player : MonoBehaviour, IColor
         StartCoroutine("DamageAnim");
         
     }
+    private void AnimDamage()
+    {
+        if (IsDamage)
+        {
+            Render.enabled = !Render.enabled;
+        }
+    }
     IEnumerator DamageAnim()
     {
         IsDamage = true;
         yield return new WaitForSeconds(TimeDamage);
         IsDamage = false;
         Render.enabled = true;
+    }
+    #endregion
+
+    public string GetColor()
+    {
+        return Color.color;
     }
 }

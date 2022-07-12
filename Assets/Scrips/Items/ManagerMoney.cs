@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 
@@ -9,9 +10,10 @@ public class ManagerMoney : MonoBehaviour
 {
 
     [SerializeField] Text MoneyText;
-    public int CantMoney;
+     int CantMoney;
     void Start()
     {
+    if (SceneManager.GetActiveScene().name == "Lvl-1"&& PlayerPrefs.GetInt("Money", 0) > 0) PlayerPrefs.SetInt("Money", 0);
     CantMoney = PlayerPrefs.GetInt("Money", 0);
     MoneyText.text = CantMoney.ToString();
     }

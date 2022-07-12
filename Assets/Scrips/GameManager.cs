@@ -9,6 +9,7 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static Action DieEvent;
+    public static Action RestLifeEvent;
     [Header("ChangePlayer")]
    
     [SerializeField] GameObject Grey, Green, Red, Blue, Yellow;
@@ -22,22 +23,23 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        PlayerActive = FindObjectOfType<Player>().gameObject;
+        SpPlayer.sprite = PlayerActive.GetComponent<Player>().ColorSp;
     }
 
     void Update()
     {
-       
-        PlayerActive = GameObject.FindGameObjectWithTag("Player");
-        SpPlayer.sprite = PlayerActive.GetComponent<Player>().ColorSp;
         Colors();
         this.transform.position = PlayerActive.transform.position;
     }
+
     #region ChangePlayer
     void Change(GameObject PlayerNew)
     {
         Destroy(PlayerActive);
-        Instantiate(PlayerNew, this.transform.position,Quaternion.identity);       
+        Instantiate(PlayerNew, this.transform.position,Quaternion.identity);
+        PlayerActive = FindObjectOfType<Player>().gameObject;
+        SpPlayer.sprite = PlayerActive.GetComponent<Player>().ColorSp;
     }
     void Colors()
     {
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
         //else if (Input.GetKeyDown("5")) Change(Yellow);
     }
     #endregion
+
     #region life
     void LifeVisual()
     {
@@ -78,10 +81,12 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         DieEvent += Die;
+        RestLifeEvent += RestLife;
     }
     private void OnDisable()
     {
         DieEvent -= Die;
+        RestLifeEvent -= RestLife;
     }
 
     #endregion

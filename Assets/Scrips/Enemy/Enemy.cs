@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     [Header("Dead")] 
-    public int TouchForDead;
     protected Rigidbody Rb;
     public Sprite DeadSprite;
     public bool ToDie;
@@ -24,10 +23,8 @@ public abstract class Enemy : MonoBehaviour
         Rb = GetComponent<Rigidbody>();
     }
 
-
     public virtual void Update()
-    {
-        if (TouchForDead == 0) Dead();
+    {     
         Mov();
     }
 
@@ -41,22 +38,23 @@ public abstract class Enemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Player>() != null)
+        Player player = collision.gameObject.GetComponent<Player>();
+        if (player != null)
         {
-            if (ToDie) TouchForDead--;
+            if (ToDie) Dead();
             else
             {
-                FindObjectOfType<GameManager>().RestLife();
-                collision.gameObject.GetComponent<Player>().Damage();
+                GameManager.RestLifeEvent?.Invoke();
+                player.Damage();
             }
         }
     }
     public virtual void MovHorizontal()
     {
-        transform.Translate(-velocity * Time.deltaTime, 0, 0);
-        if (transform.position.x > positive) right = false;
-        if (transform.position.x < negative) right = true;
-        if (right) transform.rotation = Quaternion.Euler(0, 180, 0);
-        if (!right) transform.rotation = Quaternion.Euler(0, 0, 0);
+        this.transform.Translate(-velocity * Time.deltaTime, 0, 0);
+        if (this.transform.position.x > positive) right = false;
+        if (this.transform.position.x < negative) right = true;
+        if (right) this.transform.rotation = Quaternion.Euler(0, 180, 0);
+        if (!right) this.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }
