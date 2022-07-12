@@ -36,30 +36,20 @@ public abstract class Player : MonoBehaviour, IColor
             isGrounded();
             animator.SetBool("Jump", false);
         }
-        AnimJump();
-
-
     }
     #region Movement
     void mov()
     {
-        if (Input.GetKey("s") && Downded)
-        {
-            rb.AddRelativeForce(new Vector2(0, -SpeedDown), ForceMode2D.Impulse);
-        }
         float InputX = Input.GetAxis("Horizontal");
+        float InputY = Input.GetAxis("Vertical");
 
-        if (InputX != 0 && VerifGround && rb.velocity.y == 0)
-        {
-            animator.SetBool("Run", true);
-            animator.SetBool("Fall", false);
-        }
+        //Animations
+        if (InputX != 0 && VerifGround && rb.velocity.y > -1) animator.SetBool("Run", true);
         else animator.SetBool("Run", false);
+        AnimJump();
 
-        Vector3 Movement = new Vector3(InputX, 0 , 0);
-        transform.Translate(Movement * Speed2 * Time.deltaTime);
-
-        if ((Input.GetKeyDown("space") || Input.GetKeyDown("w")) && Jumps<CantJumps && Jumped)
+        //Jump
+        if ((Input.GetKeyDown("space") || Input.GetKeyDown("w")|| Input.GetKeyDown("up")) && Jumps<CantJumps && Jumped)
         {
             rb.velocity = Vector3.zero;
             rb.angularVelocity = 0;
@@ -68,15 +58,19 @@ public abstract class Player : MonoBehaviour, IColor
            Jumps++;
             StartCoroutine("VerifGrounded");
         }
-        if (Input.GetKeyDown("a")) 
-        { transform.rotation =  Quaternion.Euler(0,180f, 0);
-            Speed2 = -Speed;
+
+        //DownMove
+        if (InputY < 0 && Downded)
+        {
+            rb.AddRelativeForce(new Vector2(0, -SpeedDown), ForceMode2D.Impulse);
         }
-        if (Input.GetKeyDown("d")) 
-        { transform.rotation = Quaternion.Euler(0, 0, 0);
-            Speed2 = Speed;
-        }
-       
+
+        //Horizontal Move
+        Speed2 = InputX * Speed;
+        if (Speed2<0)   transform.rotation =  Quaternion.Euler(0,180f, 0);
+        if (Speed2> 0)  transform.rotation = Quaternion.Euler(0, 0, 0);
+        Vector3 Movement = new Vector3(Speed2, 0, 0);
+        this.transform.Translate(Movement* Time.deltaTime,Space.World);
     }
     void isGrounded()
     {
@@ -102,7 +96,7 @@ public abstract class Player : MonoBehaviour, IColor
             animator.SetBool("Jump", true);
             animator.SetBool("Fall", false);
         }
-        if (rb.velocity.y < 0)
+        if (rb.velocity.y < 0 && VerifGround == false)
         {
             animator.SetBool("Jump", false);
             animator.SetBool("Fall", true);
@@ -112,5 +106,6 @@ public abstract class Player : MonoBehaviour, IColor
             animator.SetBool("Jump", false);
             animator.SetBool("Fall", false);
         }
+        if (VerifGround && rb.velocity.y > -1) animator.SetBool("Fall", false);
     }
 }
