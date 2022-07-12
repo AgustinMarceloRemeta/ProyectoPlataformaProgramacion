@@ -6,6 +6,7 @@ public class Harts : MonoBehaviour
 {
     [SerializeField] Sprite Sp1, Sp2, Sp3;
      public int life = 2;
+    [SerializeField] int Order;
 
     private void Update()
     {

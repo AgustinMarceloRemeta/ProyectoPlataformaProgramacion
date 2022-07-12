@@ -54,14 +54,16 @@ public class GameManager : MonoBehaviour
     #region life
     void LifeVisual()
     {
-        foreach (var item in harts)
-        {
-            if (!(item.life == 0))
-            {
-                item.life--;
-                break;
-            }
-        }
+         foreach (var item in harts)
+         {
+             if (!(item.life == 0))
+             {
+                 item.life--;
+                 break;
+             }
+         }
+        
+
     }
     public void ResetLife()
     {

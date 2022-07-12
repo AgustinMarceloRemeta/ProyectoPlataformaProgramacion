@@ -2381,7 +2381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 679810489321184116, guid: 5512bcc99dd3a2048bf432285bb233d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.99
+      value: -3.45
       objectReference: {fileID: 0}
     - target: {fileID: 679810489321184116, guid: 5512bcc99dd3a2048bf432285bb233d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2414,6 +2414,14 @@ PrefabInstance:
     - target: {fileID: 679810489321184116, guid: 5512bcc99dd3a2048bf432285bb233d2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 679810489321184117, guid: 5512bcc99dd3a2048bf432285bb233d2, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 679810489321184117, guid: 5512bcc99dd3a2048bf432285bb233d2, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -440701975
       objectReference: {fileID: 0}
     - target: {fileID: 679810489321184119, guid: 5512bcc99dd3a2048bf432285bb233d2, type: 3}
       propertyPath: door
@@ -5962,7 +5970,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyText: {fileID: 328799517}
-  CantMoney: 0
 --- !u!4 &1820330531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 979293130173161638, guid: 1dc82705275656847b6aa37cc8abbe9f, type: 3}
