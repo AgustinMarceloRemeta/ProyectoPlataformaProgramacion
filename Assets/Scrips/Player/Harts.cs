@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Harts : MonoBehaviour
 {
-    [SerializeField] Sprite Sp1, Sp2, Sp3;
+    [SerializeField] Sprite[] Sprites;
      public int life = 2;
-    [SerializeField] int Order;
 
-    private void Update()
+    public void ManagerHarts()
     {
-        if (life == 2) GetComponent<SpriteRenderer>().sprite = Sp1;
-        if (life == 1) GetComponent<SpriteRenderer>().sprite = Sp2;
-        if (life == 0) GetComponent<SpriteRenderer>().sprite = Sp3;
+        life--;
+        for (int i = 0; i < Sprites.Length; i++)
+        {
+            if(life == i)
+            {
+                GetComponent<SpriteRenderer>().sprite = Sprites[i];
+            }
+        }
     }
 }

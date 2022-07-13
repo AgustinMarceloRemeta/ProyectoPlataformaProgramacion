@@ -58,7 +58,8 @@ public class GameManager : MonoBehaviour
          {
              if (!(item.life == 0))
              {
-                 item.life--;
+                // item.life--;
+                item.ManagerHarts();
                  break;
              }
          }
