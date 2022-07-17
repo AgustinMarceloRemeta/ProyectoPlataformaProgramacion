@@ -95,12 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c929d05eda0d96b449f43f009b204e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sp1: {fileID: 2687838248061087522, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
-  Sp2: {fileID: -8045893399972588014, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
-  Sp3: {fileID: -5402533863154111428, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
   Sprites:
-  - {fileID: 2687838248061087522, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
-  - {fileID: -8045893399972588014, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
   - {fileID: -5402533863154111428, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
+  - {fileID: -8045893399972588014, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
+  - {fileID: 2687838248061087522, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
   life: 2
-  Order: 4
