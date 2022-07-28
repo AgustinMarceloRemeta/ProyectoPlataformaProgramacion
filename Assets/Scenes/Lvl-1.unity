@@ -3961,6 +3961,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6495146982554516163, guid: 89d29d853bc1d8f45a28f262a3fcc870, type: 3}
+      propertyPath: color
+      value: 
+      objectReference: {fileID: 11400000, guid: 67c6e597fdb72cc4d871c855aeae4ed9, type: 2}
     - target: {fileID: 6495146982554516166, guid: 89d29d853bc1d8f45a28f262a3fcc870, type: 3}
       propertyPath: m_Name
       value: mouse

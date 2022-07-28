@@ -15,6 +15,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private bool right;
     [SerializeField] private float velocity;
     protected float negative, positive;
+    public Colors color;
 
     public virtual void Start()
     {
