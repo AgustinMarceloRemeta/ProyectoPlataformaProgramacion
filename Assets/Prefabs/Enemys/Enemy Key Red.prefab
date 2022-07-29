@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1699003938770343481}
   - component: {fileID: 1699003938770343480}
   - component: {fileID: 1699003938770343483}
-  - component: {fileID: 1699003938770343482}
   - component: {fileID: -5768178661466828561}
   m_Layer: 0
   m_Name: Enemy Key Red
@@ -102,27 +101,8 @@ MonoBehaviour:
   Limit: 0
   right: 0
   velocity: 0
-  color: {fileID: 0}
+  color: {fileID: 11400000, guid: bee5cd9be7a4eeb4e83eedc270b692e4, type: 2}
   KeyVelocity: 3
---- !u!114 &1699003938770343482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1699003938770343485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46228e6ccc2f39f439607bf196e3ce2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DeadSprite: {fileID: 0}
-  ToDie: 0
-  Limit: 0
-  right: 0
-  velocity: 0
-  color: {fileID: 0}
-  KeyVelocity: 0
 --- !u!60 &-5768178661466828561
 PolygonCollider2D:
   m_ObjectHideFlags: 0

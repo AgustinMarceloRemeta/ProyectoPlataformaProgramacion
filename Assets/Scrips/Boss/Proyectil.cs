@@ -8,8 +8,18 @@ public class Proyectil : Enemy
     public override void Update()
     {
         base.Update();
-        ToDie = false;
-        
+        RaycastHit2D hit;
+        if (this.transform.rotation.eulerAngles.z == 0)
+         hit = Physics2D.Raycast(transform.position, Vector2.left, 3f, LayerMask.GetMask("Player"));
+        else
+         hit = Physics2D.Raycast(transform.position, Vector2.down, 3f, LayerMask.GetMask("Player"));
+        if (hit == true)
+        {
+            Player player = hit.collider.gameObject.GetComponent<Player>();
+            if (color == player.Color && player!= null)
+                ToDie = true;
+        }
+
     }
     public override void Mov()
     {
