@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public abstract class Player : MonoBehaviour, IColor
 {
     //movement
+    protected bool IsClimb;
     protected bool VerifGround = true, Downded = true, Jumped = true;
     public int CantJumps;
     protected int Jumps= 3;
@@ -126,12 +127,15 @@ public abstract class Player : MonoBehaviour, IColor
     #region Damage
     public void Damage()
     {
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = 0;
-        if (this.transform.rotation.eulerAngles.y == 0)
-        rb.AddRelativeForce(new Vector2(-DamageImpulse*Time.deltaTime, DamageImpulse * Time.deltaTime),ForceMode2D.Force);
-        else
-        rb.AddRelativeForce(new Vector2(DamageImpulse*Time.deltaTime, DamageImpulse * Time.deltaTime),ForceMode2D.Force);
+        if (!IsClimb)
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = 0;
+            if (this.transform.rotation.eulerAngles.y == 0)
+                rb.AddRelativeForce(new Vector2(-DamageImpulse * Time.deltaTime, DamageImpulse * Time.deltaTime), ForceMode2D.Force);
+            else
+                rb.AddRelativeForce(new Vector2(DamageImpulse * Time.deltaTime, DamageImpulse * Time.deltaTime), ForceMode2D.Force);
+        }
         StartCoroutine("DamageAnim");
         
     }

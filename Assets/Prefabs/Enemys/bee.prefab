@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9151056385686388732}
   - component: {fileID: 9151056385686388731}
   - component: {fileID: 9151056385686388734}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,6 +101,7 @@ MonoBehaviour:
   Limit: 2
   right: 0
   velocity: 1
+  color: {fileID: 0}
   amplitude: 0.71
   frecuency: 0.88
 --- !u!61 &9151056385686388734

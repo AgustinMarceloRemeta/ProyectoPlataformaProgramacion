@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerGreen : Player
 {
-    bool IsClimb;
+    
     [SerializeField] float Climbing;
     public override void Start()
     {

@@ -13,6 +13,6 @@ public class Proyectil : Enemy
     }
     public override void Mov()
     {
-        this.transform.Translate(new Vector3(-KeyVelocity* Time.deltaTime, 0),Space.World);
+        this.transform.Translate(new Vector3(-KeyVelocity* Time.deltaTime, 0),Space.Self);
     }
 }

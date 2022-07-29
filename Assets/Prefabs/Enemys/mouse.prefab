@@ -103,6 +103,7 @@ MonoBehaviour:
   Limit: 2
   right: 0
   velocity: 2
+  color: {fileID: 11400000, guid: 67c6e597fdb72cc4d871c855aeae4ed9, type: 2}
 --- !u!1839735485 &6495146982554516188
 Tilemap:
   m_ObjectHideFlags: 0
