@@ -208,6 +208,7 @@ MonoBehaviour:
   TimeDamage: 1
   Color: {fileID: 11400000, guid: 67c6e597fdb72cc4d871c855aeae4ed9, type: 2}
   ColorSp: {fileID: -6763785539414910572, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
+  Sound: {fileID: 5214547159659974517, guid: 970a5fefbb12b9f408bf6154031acfad, type: 3}
 --- !u!50 &4199760682010168782
 Rigidbody2D:
   serializedVersion: 4

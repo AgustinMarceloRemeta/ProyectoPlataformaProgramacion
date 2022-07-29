@@ -7685,6 +7685,7 @@ MonoBehaviour:
   - {fileID: 1023483565}
   - {fileID: 837525331}
   - {fileID: 314482355}
+  sound: {fileID: 204615042712128621, guid: 39c6e1c9736fc9248ae7af55eb898004, type: 3}
 --- !u!4 &734328803
 Transform:
   m_ObjectHideFlags: 0
@@ -7712,6 +7713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyText: {fileID: 926795032}
+  Sound: {fileID: 8044018160461782356, guid: deea38f2c408a7748839d355596c1d08, type: 3}
 --- !u!1 &755366417
 GameObject:
   m_ObjectHideFlags: 0

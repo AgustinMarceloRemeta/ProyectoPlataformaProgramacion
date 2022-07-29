@@ -9,6 +9,7 @@ public class Door : MonoBehaviour
     [SerializeField] SpriteRenderer SrUp, SrDown;
     [SerializeField] Sprite SpUp, SpDown;
     [SerializeField] bool EndLevel;
+    [SerializeField] GameObject sound;
     public static Action SaveMoney;
 
     public void OpenDoor()
@@ -16,6 +17,8 @@ public class Door : MonoBehaviour
         SrUp.sprite = SpUp;
         SrDown.sprite = SpDown;
         EndLevel = true;
+        GameObject s= Instantiate(sound, this.transform);
+        Destroy(s, 5);
     }
     public void ChangeZone()
     {

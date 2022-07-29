@@ -3073,6 +3073,7 @@ MonoBehaviour:
   - {fileID: 904622629}
   - {fileID: 143689468}
   - {fileID: 635226846}
+  sound: {fileID: 204615042712128621, guid: 39c6e1c9736fc9248ae7af55eb898004, type: 3}
 --- !u!4 &1131074616
 Transform:
   m_ObjectHideFlags: 0
@@ -3100,6 +3101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyText: {fileID: 1463160998}
+  Sound: {fileID: 8044018160461782356, guid: deea38f2c408a7748839d355596c1d08, type: 3}
 --- !u!1 &1142474609 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7529609268241486658, guid: b8e92c41aac542b43b69279cfb0eef61, type: 3}

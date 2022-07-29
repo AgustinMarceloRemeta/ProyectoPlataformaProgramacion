@@ -10,7 +10,8 @@ public class ManagerMoney : MonoBehaviour
 {
 
     [SerializeField] Text MoneyText;
-     int CantMoney;
+    [SerializeField] GameObject Sound;
+    int CantMoney;
     void Start()
     {
     if (SceneManager.GetActiveScene().name == "Lvl-1"&& PlayerPrefs.GetInt("Money", 0) > 0) PlayerPrefs.SetInt("Money", 0);
@@ -31,6 +32,9 @@ public class ManagerMoney : MonoBehaviour
     {
         CantMoney++;
         MoneyText.text = CantMoney.ToString();
+        GameObject s= Instantiate(Sound, this.transform);
+        Destroy(s, 5);
+        
     }
     void OnEnable()
     {

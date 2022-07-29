@@ -79,7 +79,7 @@ SpriteRenderer:
   m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5032783461473864521
@@ -214,8 +214,8 @@ MonoBehaviour:
   SrDown: {fileID: 5032783461473864518}
   SpUp: {fileID: -4689445804998014852, guid: 0db78ab3676d3604191ca878b1a88c5a, type: 3}
   SpDown: {fileID: 6120437822995767798, guid: 0db78ab3676d3604191ca878b1a88c5a, type: 3}
-  NewDoor: {fileID: 0}
   EndLevel: 0
+  sound: {fileID: 31355504830963664, guid: 913d1066123f8e946a4f2da5e4cd9394, type: 3}
 --- !u!61 &5032783462623308553
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -112,6 +112,7 @@ MonoBehaviour:
   TimeDamage: 1
   Color: {fileID: 11400000, guid: bee5cd9be7a4eeb4e83eedc270b692e4, type: 2}
   ColorSp: {fileID: 5293216509577878019, guid: 496101aa8c4562f40bbb5866c9d831c8, type: 3}
+  Sound: {fileID: 5214547159659974517, guid: 970a5fefbb12b9f408bf6154031acfad, type: 3}
 --- !u!61 &3605757522435316880
 BoxCollider2D:
   m_ObjectHideFlags: 0

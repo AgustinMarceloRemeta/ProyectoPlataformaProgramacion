@@ -32,6 +32,7 @@ public abstract class Player : MonoBehaviour, IColor
     [Header("Animacion")]
 
     protected Animator animator;
+    [SerializeField] GameObject Sound; 
 
     public virtual void Start()
     {
@@ -58,6 +59,8 @@ public abstract class Player : MonoBehaviour, IColor
         //Jump
         if ((Input.GetKeyDown("space") || Input.GetKeyDown("w")|| Input.GetKeyDown("up")) && Jumps<CantJumps && Jumped)
         {
+            GameObject s =Instantiate(Sound, this.transform);
+            Destroy(s, 5);
             rb.velocity = Vector3.zero;
             rb.angularVelocity = 0;
             animator.SetBool("Run", false);

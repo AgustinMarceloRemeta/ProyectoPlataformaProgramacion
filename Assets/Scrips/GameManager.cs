@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [Header("Life")]
     public int Life;
     [SerializeField] Harts[] harts;
+    [SerializeField] GameObject sound;
      
 
     void Start()
@@ -73,6 +74,8 @@ public class GameManager : MonoBehaviour
     public void RestLife()
     {
         Life--;
+       GameObject s=  Instantiate(sound, this.transform);
+        Destroy(s, 5);
         LifeVisual();
         if (Life == 0) DieEvent?.Invoke();        
     }
