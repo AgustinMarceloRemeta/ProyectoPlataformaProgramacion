@@ -8,7 +8,6 @@ public class Door : MonoBehaviour
 {
     [SerializeField] SpriteRenderer SrUp, SrDown;
     [SerializeField] Sprite SpUp, SpDown;
-    [SerializeField] Transform NewDoor;
     [SerializeField] bool EndLevel;
     public static Action SaveMoney;
 
